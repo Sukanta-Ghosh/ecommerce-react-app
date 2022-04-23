@@ -1,0 +1,33 @@
+{
+    "teamMemberData": {
+        "teamData": [
+            {
+                "member": {
+                    "id": 1,
+                    "name": "Member 1",
+                    "designation": "Software Engineer",
+                    "description": "Member 1 is this....",
+                    "pic": "images/member-1.jpg"
+                }
+            },
+            {
+                "member": {
+                    "id": 2,
+                    "name": "Member 2",
+                    "designation": "Senior Software Engineer",
+                    "description": "Member 2 is this....",
+                    "pic": "images/member-2.jpg"
+                }
+            },
+            {
+                "member": {
+                    "id": 3,
+                    "name": "Member 3",
+                    "designation": "Product Manager",
+                    "description": "Member 3 is this....",
+                    "pic": "images/member-3.jpg"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "courses": {
+        "edges": [
+            {
+                "node": {
+                    "id": 1,
+                    "title": "Bootstrap 4",
+                    "price": 9.99,
+                    "category": "Web",
+                    "description": "A course on Bootstrap 4",
+                    "src": "images/image1.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 2,
+                    "title": "django",
+                    "price": 10.99,
+                    "category": "Web",
+                    "description": "A course on Django",
+                    "src": "images/image-2.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 3,
+                    "title": "React Native",
+                    "price": 100.99,
+                    "category": "Mobile",
+                    "description": "A course on React Native",
+                    "src": "images/image-3.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 4,
+                    "title": "Flutter",
+                    "price": 11.99,
+                    "category": "Mobile",
+                    "description": "A course on Flutter",
+                    "src": "images/image-4.jpg"
+                }
+            }
+        ]
+    }
+}

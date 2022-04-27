@@ -77,11 +77,14 @@ export default class Coursecart extends Component {
           <div className="row">
             {this.state.mycourses.map(({ node }) => {
               return (
-                <Card
-                  key={node.id}
-                  className="col-11 col-md-6 d-flex my-3 mx-auto"
-                >
-                  <CardImg src={node.src} />
+                <Card key={node.id} className="col-6 col-md-3 d-flex my-3 mx-3">
+                  <img
+                    height="100%"
+                    width="100%"
+                    src={node.src}
+                    alt="Missing"
+                    className="mt-2"
+                  />
                   <CardBody>
                     <CardTitle className="mb-0">{node.title}</CardTitle>
                     <CardSubtitle className="mb-0 text-success">

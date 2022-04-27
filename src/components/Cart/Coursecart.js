@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import {
   Button,
+  Card,
   CardBody,
-  CardImg,
-  CardTitle,
   CardSubtitle,
   CardText,
-  Card,
+  CardTitle,
 } from "reactstrap";
 import Heading from "../Reusable/Heading";
 

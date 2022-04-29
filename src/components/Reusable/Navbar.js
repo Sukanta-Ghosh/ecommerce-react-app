@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { FaCartArrowDown } from "react-icons/fa";
+import { FiSun } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import logo from "../../logo-1.png";
-import { FaCartArrowDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [navbarState, setNavbarState] = useState(false);
@@ -53,9 +54,12 @@ const Navbar = () => {
             );
           })}
           <li className="nav-item">
-            <Link to="/" className="nav-link text-white text-bold">
+            <Link to="/cart" className="nav-link text-white text-bold">
               <FaCartArrowDown className="cart-icon" />
             </Link>
+          </li>
+          <li className="nav-item">
+            <FiSun className="cart-icon" />
           </li>
         </ul>
       </div>

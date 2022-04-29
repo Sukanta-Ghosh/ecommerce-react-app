@@ -1,8 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Heading from "./Heading";
 
 const Infoblock = ({ heading }) => {
+  const btnClick = () => {
+    toast("Coming soon...Clicked on " + heading + " button", {
+      type: "success",
+    });
+  };
+
   return (
     <section className="bg-theme my-5 py-4">
       <div className="container">
@@ -15,9 +21,9 @@ const Infoblock = ({ heading }) => {
               impedit error vero! Totam nisi enim quo, unde nemo ratione
               exercitationem pariatur natus? Assumenda!
             </p>
-            <Link to="/about">
-              <button className="btn btn-warning btn-lg">{heading}</button>
-            </Link>
+            <button className="btn btn-warning btn-lg" onClick={btnClick}>
+              {heading}
+            </button>
           </div>
         </div>
       </div>

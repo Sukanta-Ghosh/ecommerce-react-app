@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "reactstrap";
 import Heading from "../Reusable/Heading";
+import { toast } from "react-toastify";
 
 const sortCategory = (items) => {
   let holdItems = items.map((items) => {
@@ -47,6 +48,12 @@ export default class Coursecart extends Component {
         return { mycourses: holdCourses };
       });
     }
+  };
+
+  addToCart = () => {
+    toast("Coming soon...Clicked on Add to Cart button", {
+      type: "success",
+    });
   };
 
   render() {
@@ -92,7 +99,12 @@ export default class Coursecart extends Component {
                     <CardText>
                       <small>{node.description}</small>
                     </CardText>
-                    <Button className="btn btn-warning">Add to Cart</Button>
+                    <Button
+                      className="btn btn-warning"
+                      onClick={this.addToCart}
+                    >
+                      Add to Cart
+                    </Button>
                   </CardBody>
                 </Card>
               );

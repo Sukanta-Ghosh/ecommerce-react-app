@@ -9,8 +9,13 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
+import { toast } from "react-toastify";
 
 const Teamphotosection = ({ teamMember }) => {
+  const btnClick = () => {
+    toast("Coming soon...Clicked on Learn More button", { type: "success" });
+  };
+
   return (
     <div className="row">
       <div className="mx-auro">
@@ -29,7 +34,7 @@ const Teamphotosection = ({ teamMember }) => {
                   <CardTitle>{member.name}</CardTitle>
                   <CardSubtitle>{member.designation}</CardSubtitle>
                   <CardText>{member.description}</CardText>
-                  <Button>Learn More</Button>
+                  <Button onClick={btnClick}>Learn More</Button>
                 </CardBody>
               </Card>
             );

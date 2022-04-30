@@ -14,10 +14,7 @@ const About = ({ data }) => (
       subtitle=""
       heroclass="about-background"
     />
-    <DualInfoblock
-      heading="Message from CEO"
-      srcimg="https://images.pexels.com/photos/3992134/pexels-photo-3992134.jpeg?auto=compress&cs=tinysrgb&dpr=2&fit=crop&h=250&w=360"
-    />
+    <DualInfoblock heading="Message from CEO" srcimg="" />
     <Infoblock heading="About our vision" />
     <Teamphotosection teamMember={teamDataStore.teamMemberData} />
   </Layout>

@@ -1,3 +1,19 @@
+.light{
+  background-color: whitesmoke;
+}
+
+.dark{
+  background-color: black;
+}
+
+.light .theme-text{
+  color: black;
+}
+
+.dark .theme-text{
+  color: aliceblue
+}
+
 .bg-theme {
   background-color: #5A20CB;
 }

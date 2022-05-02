@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
 import { Container, Label } from "reactstrap";
+import CartContext from "../../context/CartContext";
 import ThemeContext from "../../context/ThemeContext";
 import logo from "../../logo-1.png";
 
 const Navbar = () => {
   const [navbarState, setNavbarState] = useState(false);
   const [navbarClass, setNavbarClass] = useState("collapse navbar-collapse");
+
+  //Use CartContext
+  const { cartItems } = useContext(CartContext);
 
   //Navbar Menus
   const menus = [
@@ -81,6 +85,7 @@ const Navbar = () => {
             <li className="nav-item">
               <Link to="/cart" className="nav-link text-white">
                 <FaCartArrowDown className="cart-icon" />
+                <span>({cartItems.length})</span>
               </Link>
             </li>
           </ul>

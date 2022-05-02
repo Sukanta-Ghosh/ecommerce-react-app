@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import {
   Button,
   Card,
@@ -7,8 +8,8 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
+import CartContext from "../../context/CartContext";
 import Heading from "../Reusable/Heading";
-import { toast } from "react-toastify";
 
 const sortCategory = (items) => {
   let holdItems = items.map((items) => {
@@ -23,95 +24,104 @@ const sortCategory = (items) => {
   return categories;
 };
 
-export default class Coursecart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      courses: props.courses.edges,
-      mycourses: props.courses.edges,
-      sortcategories: sortCategory(props.courses.edges),
-    };
-  }
+const Coursecart = ({ courses }) => {
+  //Courses state
+  const [mycourses, setMycourses] = useState(courses.edges);
+  const sortcategories = sortCategory(courses.edges);
 
-  categoryClicked = (category) => {
-    let mutateCourses = [...this.state.courses];
+  //Use Cart Context
+  const { cartItems, setCartItems } = useContext(CartContext);
+
+  //Method to click on Category Buttons
+  const categoryClicked = (category) => {
+    let mutateCourses = [...courses.edges];
 
     if (category === "All") {
-      this.setState(() => {
-        return { mycourses: mutateCourses };
-      });
+      setMycourses(mutateCourses);
     } else {
       let holdCourses = mutateCourses.filter(
         ({ node }) => node.category === category
       );
-      this.setState(() => {
-        return { mycourses: holdCourses };
-      });
+      setMycourses(holdCourses);
     }
   };
 
-  addToCart = () => {
-    toast("Coming soon...Clicked on Add to Cart button", {
-      type: "success",
-    });
+  //Method for add items to cart
+  const addToCart = (item) => {
+    //Define method to validate whether item is already present in the cart
+    //If not present then it will return -1
+    const isAlreadyAdded = cartItems.findIndex((array) => array.id === item.id);
+
+    //Call upper validation method with msg
+    if (isAlreadyAdded !== -1) {
+      toast(item.title + " item is already added in the cart", {
+        type: "error",
+      });
+      return;
+    }
+
+    //Add the item in the cart
+    setCartItems([...cartItems, item]);
+
+    toast(item.title + " added to the cart", { type: "success" });
   };
 
-  render() {
-    //console.log(this.state.courses)
-    return (
-      <section className="py-5">
-        <div className="container">
-          <Heading title="Courses" />
-          <div className="row my-3">
-            <div className="col-10 mx-auto text-center">
-              {this.state.sortcategories.map((category, index) => {
-                return (
-                  <button
-                    type="button"
-                    className="btn btn-info m-3 px-3"
-                    key={index}
-                    onClick={() => {
-                      this.categoryClicked(category);
-                    }}
-                  >
-                    {category}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-          <div className="row">
-            {this.state.mycourses.map(({ node }) => {
+  return (
+    <section className="py-5">
+      <div className="container">
+        <Heading title="Courses" />
+        <div className="row my-3">
+          <div className="col-10 mx-auto text-center">
+            {sortcategories.map((category, index) => {
               return (
-                <Card key={node.id} className="col-6 col-md-3 d-flex my-3 mx-3">
-                  <img
-                    height="100%"
-                    width="100%"
-                    src={node.src}
-                    alt="Missing"
-                    className="mt-2"
-                  />
-                  <CardBody>
-                    <CardTitle className="mb-0">{node.title}</CardTitle>
-                    <CardSubtitle className="mb-0 text-success">
-                      $ {node.price}
-                    </CardSubtitle>
-                    <CardText>
-                      <small>{node.description}</small>
-                    </CardText>
-                    <Button
-                      className="btn btn-warning"
-                      onClick={this.addToCart}
-                    >
-                      Add to Cart
-                    </Button>
-                  </CardBody>
-                </Card>
+                <button
+                  type="button"
+                  className="btn btn-info m-3 px-3"
+                  key={index}
+                  onClick={() => {
+                    categoryClicked(category);
+                  }}
+                >
+                  {category}
+                </button>
               );
             })}
           </div>
         </div>
-      </section>
-    );
-  }
-}
+        {/* Display Products/Services Card */}
+        <div className="row">
+          {mycourses.map(({ node }) => {
+            return (
+              <Card key={node.id} className="col-6 col-md-3 d-flex my-3 mx-3">
+                <img
+                  height="100%"
+                  width="100%"
+                  src={node.src}
+                  alt="Missing"
+                  className="mt-2"
+                />
+                <CardBody>
+                  <CardTitle className="mb-0">{node.title}</CardTitle>
+                  <CardSubtitle className="mb-0 text-success">
+                    $ {node.price}
+                  </CardSubtitle>
+                  <CardText>
+                    <small>{node.description}</small>
+                  </CardText>
+                  <Button
+                    className="btn btn-warning"
+                    onClick={() => addToCart(node)}
+                  >
+                    Add to Cart
+                  </Button>
+                </CardBody>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Coursecart;

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";

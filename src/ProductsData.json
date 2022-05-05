@@ -1,0 +1,66 @@
+{
+    "courses": {
+        "edges": [
+            {
+                "node": {
+                    "id": 1,
+                    "title": "Add your product 1",
+                    "price": 999,
+                    "category": "Select Category 1",
+                    "description": "Brag about your product",
+                    "src": "images/image1.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 2,
+                    "title": "Add your product 2",
+                    "price": 1099,
+                    "category": "Select Category 1",
+                    "description": "Brag about your product",
+                    "src": "images/image-2.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 3,
+                    "title": "Add your product 3",
+                    "price": 1099,
+                    "category": "Select Category 2",
+                    "description": "Brag about your product",
+                    "src": "images/image-3.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 4,
+                    "title": "Add your product 4",
+                    "price": 1199,
+                    "category": "Select Category 2",
+                    "description": "Brag about your product",
+                    "src": "images/image-4.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 5,
+                    "title": "Add your product 5",
+                    "price": 1199,
+                    "category": "Select Category 2",
+                    "description": "Brag about your product",
+                    "src": "images/image-4.jpg"
+                }
+            },
+            {
+                "node": {
+                    "id": 6,
+                    "title": "Add your product 6",
+                    "price": 1199,
+                    "category": "Select Category 3",
+                    "description": "Brag about your product",
+                    "src": "images/image-4.jpg"
+                }
+            }
+        ]
+    }
+}

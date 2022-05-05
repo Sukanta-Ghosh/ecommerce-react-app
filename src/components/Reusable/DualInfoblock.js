@@ -11,9 +11,9 @@ import {
 import Heading from "./Heading";
 import { toast } from "react-toastify";
 
-export const DualInfoblock = ({ heading, imgsrc }) => {
+export const DualInfoblock = ({ heading, bodyContent, imgsrc }) => {
   const btnClick = () => {
-    toast("Coming soon...Clicked on " + heading + " button", {
+    toast("Customize your own...Clicked on " + heading + " button", {
       type: "success",
     });
   };
@@ -24,15 +24,7 @@ export const DualInfoblock = ({ heading, imgsrc }) => {
         <Heading title={heading} />
         <div className="row">
           <div className="col-8 mx-auto">
-            <p className="lead text-white mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-              voluptas, repellat eaque facilis aut asperiores, nostrum et
-              similique mollitia nesciunt blanditiis repellendus labore possimus
-              quis voluptatum delectus voluptates vel repudiandae reiciendis.
-              Corrupti est saepe nostrum, dolor nihil porro distinctio, minima
-              esse nemo quos vero doloremque excepturi suscipit rerum iusto
-              praesentium?
-            </p>
+            <p className="lead text-white mb-5">{bodyContent}</p>
           </div>
           <div className="col-4">
             <div>

@@ -1,20 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
 import { Container, Label } from "reactstrap";
 import CartContext from "../../context/CartContext";
 import ThemeContext from "../../context/ThemeContext";
-import logo from "../../logo-1.png";
+import logo from "../../logo.jpg";
 
 const Navbar = () => {
+  //Navbarresponsive menu state
   const [navbarState, setNavbarState] = useState(false);
   const [navbarClass, setNavbarClass] = useState("collapse navbar-collapse");
 
   //Use CartContext
   const { cartItems } = useContext(CartContext);
 
-  //Navbar Menus
+  // const { themeMode, setThemeMode } = useContext(ThemeContext);
+
+  // //Get items from local storage and set in state using Effects
+  // useEffect(() => {
+  //   const themeMode = localStorage.getItem("themeMode");
+  //   //console.log({ localStorage });
+  //   if (themeMode) {
+  //     setThemeMode(JSON.parse(themeMode));
+  //   }
+  // }, [setThemeMode]);
+
+  // //Set items to local storage using useEffect
+  // useEffect(() => {
+  //   localStorage.setItem("themeMode", JSON.stringify(themeMode));
+  // }, [themeMode]);
+
+  //Navbar Labels
   const menus = [
     {
       id: 1,
@@ -60,6 +77,12 @@ const Navbar = () => {
                 </li>
               );
             })}
+            <li className="nav-item">
+              <Link to="/cart" className="nav-link text-white">
+                <FaCartArrowDown className="cart-icon" />
+                <span>({cartItems.length})</span>
+              </Link>
+            </li>
           </ul>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -81,12 +104,6 @@ const Navbar = () => {
                   </div>
                 )}
               </ThemeContext.Consumer>
-            </li>
-            <li className="nav-item">
-              <Link to="/cart" className="nav-link text-white">
-                <FaCartArrowDown className="cart-icon" />
-                <span>({cartItems.length})</span>
-              </Link>
             </li>
           </ul>
         </div>

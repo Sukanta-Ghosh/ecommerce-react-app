@@ -11,10 +11,14 @@ const About = ({ data }) => (
   <Layout>
     <HeroSection
       title="About this project"
-      subtitle=""
+      subtitle="Market Solution"
       heroclass="about-background"
     />
-    <DualInfoblock heading="Message from CEO" srcimg="" />
+    <DualInfoblock
+      heading="Our Clients"
+      bodyContent="Highlight your colients"
+      srcimg=""
+    />
     <Infoblock heading="About our vision" />
     <Teamphotosection teamMember={teamDataStore.teamMemberData} />
   </Layout>

@@ -13,4 +13,4 @@ This is a Custom E-commerce project build with React JS Library deployed on Netl
 
 ## Tech Stack
 
-**Client:** React, Bootstrap
+**Front End:** React, Bootstrap

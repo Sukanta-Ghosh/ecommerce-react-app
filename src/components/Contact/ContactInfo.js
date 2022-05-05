@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const ContactInfo = () => {
   const fromSubmitEvent = (e) => {
     e.preventDefault();
-    toast("Form is submitted", { type: "success" });
+    toast("Customize your Form submition", { type: "success" });
   };
   return (
     <section className="py-3">

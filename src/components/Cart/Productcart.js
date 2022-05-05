@@ -24,7 +24,7 @@ const sortCategory = (items) => {
   return categories;
 };
 
-const Coursecart = ({ courses }) => {
+const Productcart = ({ courses }) => {
   //Courses state
   const [mycourses, setMycourses] = useState(courses.edges);
   const sortcategories = sortCategory(courses.edges);
@@ -69,7 +69,7 @@ const Coursecart = ({ courses }) => {
   return (
     <section className="py-5">
       <div className="container">
-        <Heading title="Courses" />
+        <Heading title="Products/Services" />
         <div className="row my-3">
           <div className="col-10 mx-auto text-center">
             {sortcategories.map((category, index) => {
@@ -103,7 +103,7 @@ const Coursecart = ({ courses }) => {
                 <CardBody>
                   <CardTitle className="mb-0">{node.title}</CardTitle>
                   <CardSubtitle className="mb-0 text-success">
-                    $ {node.price}
+                    Rs. {node.price}
                   </CardSubtitle>
                   <CardText>
                     <small>{node.description}</small>
@@ -124,4 +124,4 @@ const Coursecart = ({ courses }) => {
   );
 };
 
-export default Coursecart;
+export default Productcart;

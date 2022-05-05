@@ -4,20 +4,27 @@ import Layout from "../components/Layout";
 import HeroSection from "../components/Reusable/HeroSection";
 import Infoblock from "../components/Reusable/Infoblock";
 import { DualInfoblock } from "../components/Reusable/DualInfoblock";
-import Coursecart from "../components/Cart/Coursecart";
+import Productcart from "../components/Cart/Productcart";
 
-const courseData = require("../CourseData.json");
+const ProductsData = require("../ProductsData.json");
 
 const Home = () => (
   <Layout>
     <HeroSection
-      title="I write Code"
-      subtitle="We write Code"
+      title="Build as you like"
+      subtitle="Now you can build your own e-commerce site"
       heroclass="hero-background"
     />
-    <Infoblock heading="About Us" />
-    <Coursecart courses={courseData.courses} />
-    <DualInfoblock heading="Our Team" srcimg="images/team-img.png" />
+    <Infoblock
+      heading="About our Products & Servises"
+      bodyContent="Market your products / services here "
+    />
+    <Productcart courses={ProductsData.courses} />
+    <DualInfoblock
+      heading="Our Team"
+      bodyContent="Talk about your amazing team"
+      srcimg="images/team-img.png"
+    />
   </Layout>
 );
 

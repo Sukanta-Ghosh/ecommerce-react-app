@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
+    <ThemeContext.Provider value={{ themeMode, setThemeMode, toggleTheme }}>
       <CartContext.Provider value={{ cartItems, setCartItems }}>
         <div className={themeMode}>
           <Router>

@@ -13,7 +13,9 @@ import { toast } from "react-toastify";
 
 const Teamphotosection = ({ teamMember }) => {
   const btnClick = () => {
-    toast("Coming soon...Clicked on Learn More button", { type: "success" });
+    toast("Customize your own...Clicked on Learn More button", {
+      type: "success",
+    });
   };
 
   return (

@@ -16,7 +16,7 @@ const About = ({ data }) => (
     />
     <DualInfoblock
       heading="Our Clients"
-      bodyContent="Highlight your colients"
+      bodyContent="Highlight your clients"
       srcimg=""
     />
     <Infoblock heading="About our vision" />

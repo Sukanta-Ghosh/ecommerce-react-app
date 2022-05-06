@@ -55,7 +55,7 @@ const CheckoutCart = () => {
                 <ListGroupItem key={item.id} className="m-2">
                   <Row>
                     <Col>
-                      <img alt="Item " height={80} src={item.src} />
+                      <img alt="Item " height={80} src={item.image} />
                     </Col>
                     <Col className="text-center">
                       <div className="text-primary">{item.title}</div>

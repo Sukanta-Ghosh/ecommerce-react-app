@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import {
   Button,
@@ -13,7 +13,7 @@ import Heading from "../Reusable/Heading";
 
 const sortCategory = (items) => {
   let holdItems = items.map((items) => {
-    return items.node.category;
+    return items.category;
   });
 
   //Filtering duplicate values
@@ -24,25 +24,31 @@ const sortCategory = (items) => {
   return categories;
 };
 
-const Productcart = ({ courses }) => {
-  //Courses state
-  const [mycourses, setMycourses] = useState(courses.edges);
-  const sortcategories = sortCategory(courses.edges);
+const Productcart = ({ products }) => {
+  //Products state
+  const [myProducts, setMyProducts] = useState([]);
+  const sortcategories = sortCategory(products);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMyProducts(products);
+    }, 1000);
+  });
 
   //Use Cart Context
   const { cartItems, setCartItems } = useContext(CartContext);
 
   //Method to click on Category Buttons
   const categoryClicked = (category) => {
-    let mutateCourses = [...courses.edges];
+    let mutateProducts = [...products];
 
     if (category === "All") {
-      setMycourses(mutateCourses);
+      setMyProducts(mutateProducts);
     } else {
-      let holdCourses = mutateCourses.filter(
-        ({ node }) => node.category === category
+      let holdProducts = mutateProducts.filter(
+        (node) => node.category === category
       );
-      setMycourses(holdCourses);
+      setMyProducts(holdProducts);
     }
   };
 
@@ -63,7 +69,7 @@ const Productcart = ({ courses }) => {
     //Add the item in the cart
     setCartItems([...cartItems, item]);
 
-    toast(item.title + " added to the cart", { type: "success" });
+    toast(item.title + " added to the cart. Go to Cart.", { type: "success" });
   };
 
   return (
@@ -90,13 +96,13 @@ const Productcart = ({ courses }) => {
         </div>
         {/* Display Products/Services Card */}
         <div className="row">
-          {mycourses.map(({ node }) => {
+          {myProducts.map((node) => {
             return (
               <Card key={node.id} className="col-6 col-md-3 d-flex my-3 mx-3">
                 <img
                   height="100%"
                   width="100%"
-                  src={node.src}
+                  src={node.image}
                   alt="Missing"
                   className="mt-2"
                 />

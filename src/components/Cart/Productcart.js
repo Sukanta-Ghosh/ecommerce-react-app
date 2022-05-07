@@ -106,6 +106,7 @@ const Productcart = ({ courses }) => {
                     Rs. {node.price}
                   </CardSubtitle>
                   <CardText>
+                    <p>Category: {node.category}</p>
                     <small>{node.description}</small>
                   </CardText>
                   <Button

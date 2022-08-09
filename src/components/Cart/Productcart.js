@@ -30,10 +30,8 @@ const Productcart = ({ products }) => {
   const sortcategories = sortCategory(products);
 
   useEffect(() => {
-    setTimeout(() => {
-      setMyProducts(products);
-    }, 1000);
-  });
+    setMyProducts(products);
+  }, []);
 
   //Use Cart Context
   const { cartItems, setCartItems } = useContext(CartContext);
